@@ -70,5 +70,14 @@
 </environment>
 
 @RenderSection("Scripts", required: false)
+   
+<script>
+        $(document).ready(function () {
+            $('#todoItems .list-group-item-danger').each(function () {
+                $(this).prependTo('#todoItems');
+            });
+
+        });
+    </script>
 </body>
 </html>

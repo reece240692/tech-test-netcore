@@ -11,13 +11,9 @@
 
 <div class="col-md-6">
 
-    <ul class="list-group">
+    <ul class="list-group" id="todoItems">
 
-        <li class="list-group-item">
-            <a asp-action="Create" asp-controller="TodoItem" asp-route-todoListId="@Model.TodoListId">
-                <strong>Add New Item</strong>
-            </a>
-        </li>
+       
 
         @foreach (var item in Model.Items)
         {
@@ -26,6 +22,9 @@
             {
                 case Importance.High:
                     contextualClass = "list-group-item-danger";
+                    break;
+                case Importance.Medium:
+                    contextualClass = "list-group-item-warning";
                     break;
                 case Importance.Low:
                     contextualClass = "list-group-item-info";
@@ -65,5 +64,13 @@
 
             </li>
         }
+
+        <li class="list-group-item">
+            <a asp-action="Create" asp-controller="TodoItem" asp-route-todoListId="@Model.TodoListId">
+                <strong>Add New Item</strong>
+            </a>
+        </li>
     </ul>
 </div>
+
+
